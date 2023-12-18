@@ -1,0 +1,16 @@
+
+// Scripted Pipeline //
+
+node {
+
+	stage('Build'){
+	// build the application 
+	sh 'whoami'
+	sh 'cd /home/edureka/Devops/repo2/my-app/ && sudo mvn clean && sudo mvn package '
+	}
+
+	stage('Test'){
+	//running the test 
+	sh 'cd /home/edureka/Devops/repo2/my-app/ && java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App'
+	}
+}
